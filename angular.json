@@ -1,16 +1,13 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "a3670910-14a6-42cb-a4af-b5d59a121eca"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bit_mx_2023": {
+    "bitmx": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       },
       "root": "",
@@ -20,17 +17,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bit_mx_2023",
+            "outputPath": "dist/bitmx",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -71,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "bit_mx_2023:build:production"
+              "browserTarget": "bitmx:build:production"
             },
             "development": {
-              "browserTarget": "bit_mx_2023:build:development"
+              "browserTarget": "bitmx:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bit_mx_2023:build"
+            "browserTarget": "bitmx:build"
           }
         },
         "test": {
@@ -92,12 +90,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -105,5 +104,7 @@
       }
     }
   },
-  "defaultProject": "bit_mx_2023"
+  "cli": {
+    "analytics": "848ed0fa-bad1-48c0-87b4-4d11f01e92d8"
+  }
 }
